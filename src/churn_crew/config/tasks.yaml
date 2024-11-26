@@ -1,0 +1,27 @@
+process_data:
+  description: >
+    Receive and process input data for {companyId} including details such as its login count, its created campaigns count and its integrations count.
+  expected_output: >
+    Processed company data ready for analysis for {companyId}.
+  agent: data_analyst
+
+classify_company_data:
+  description: >
+    Use the classifyChurnMLTool to predict churn risk level (low, medium, or high) for {companyId} based on the processed company data.
+  expected_output: >
+    Churn risk level (low, medium, high) and associated risk factors for {companyId}.
+  agent: data_analyst
+
+interpret_classification:
+  description: >
+    Identify unused features in the SaaS platform for {companyId} based on the provided data that might contribute to the churn risk.
+  expected_output: >
+    List of unused SaaS features that could contribute to the churn risk for {companyId}.
+  agent: feature_usage_analyser
+
+create_retention_strategies:
+  description: >
+    Create targeted retention strategies for {companyId} by analyzing churn risk and unused features identified.
+  expected_output: >
+    Detailed retention strategies tailored to mitigate churn risk for {companyId}.
+  agent: retention_specialist
